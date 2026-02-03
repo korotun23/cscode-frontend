@@ -1,3 +1,6 @@
+// TODO: Separate view in multiple components (settings, preview, upload database, database //
+settings) // TODO: Implement image file type managament (png, jpg, jpeg, webp, svg) // TODO:
+Implement database upload // TODO: Implement database settings
 <template>
   <!-- HERO -->
   <div class="hero is-info welcome is-small">
@@ -43,7 +46,7 @@
                       class="input is-fullwidth"
                       type="text"
                       placeholder="Width"
-                      v-model="barcodeParameters.size[0]"
+                      v-model="barcodeParameters.size[1]"
                       @change="updateBarcodePreview()"
                     />
                   </div>
@@ -56,13 +59,14 @@
                       class="input is-fullwidth"
                       type="text"
                       placeholder="Height"
-                      v-model="barcodeParameters.size[1]"
+                      v-model="barcodeParameters.size[0]"
                       @change="updateBarcodePreview()"
                     />
                   </div>
                 </div>
               </div>
             </div>
+            <!-- TODO: Implement image file type managament (png, jpg, jpeg, webp, svg) -->
             <div class="field">
               <div class="select is-fullwidth">
                 <select>
@@ -76,7 +80,7 @@
               </div>
             </div>
             <div class="field">
-              <label class="checkbox">
+              <label class="form-control-checkbox">
                 <input
                   type="checkbox"
                   v-model="barcodeParameters.printTextValue"
@@ -226,7 +230,7 @@ import { BarcodeGeneratorService } from '../services/barcodeGeneratorService'
 // Types
 import type { Ref } from 'vue'
 import type { BarcodeTypeInterface } from '../types/barcodeTypeInterface'
-import { BarcodeParameters } from '@/types/barcodeParameters'
+import { BarcodeParameters } from '../types/barcodeParameters'
 
 export default defineComponent({
   name: 'BarcodeGeneratorView',

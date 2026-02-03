@@ -1,4 +1,5 @@
-import { BarcodeParameters } from '@/types/barcodeParameters'
+//import { BarcodeParameters } from '@/types/barcodeParameters'
+import { BarcodeParameters } from '../types/barcodeParameters'
 import bwipjs from '@bwip-js/node'
 
 export class BarcodeGeneratorService {
