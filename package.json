@@ -26,6 +26,7 @@
     "bwip-js": "^4.8.0",
     "dotenv": "^17.2.3",
     "material-symbols": "^0.40.2",
+    "pinia": "^3.0.4",
     "sass": "^1.97.2",
     "vue": "^3.5.26",
     "vue-router": "^4.6.4"
