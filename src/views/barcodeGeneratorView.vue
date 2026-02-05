@@ -207,7 +207,7 @@ Implement database upload // TODO: Implement database settings
                 <div class="column is-3">
                   <button class="button is-primary is-fullwidth is-outlined" disabled>
                     <span class="material-symbols-outlined pr-2"> download </span>
-                    Dowload
+                    Download
                   </button>
                 </div>
               </div>

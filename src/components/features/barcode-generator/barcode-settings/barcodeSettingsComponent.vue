@@ -7,8 +7,15 @@
       <div class="field">
         <label for="barcode-type">Barcode type</label>
         <div class="select is-fullwidth mt-2">
-          <select id="barcode-type">
-            <option>Select the barcode type</option>
+          <select id="barcode-type" v-model="selectedBarcodeType">
+            <option disabled value>Select the barcode type</option>
+            <option
+              v-for="barcodeType in barcodeTypes"
+              :key="barcodeType.identifier"
+              :value="barcodeType"
+            >
+              {{ barcodeType.name }}
+            </option>
           </select>
         </div>
       </div>
@@ -49,12 +56,26 @@
 
 <script lang="ts">
 // Vue
-import { defineComponent } from 'vue'
+import { defineComponent, inject, ref } from 'vue'
+// Service
+import { BarcodeTypeService } from '@/services/barcodeTypeService'
+// Types
+import type { BarcodeTypeInterface } from '@/types/barcodeTypeInterface'
 
 export default defineComponent({
   name: 'BarcodeSettingsComponent',
   setup() {
-    return {}
+    // Services injected
+    const barcodeTypeService: BarcodeTypeService | undefined =
+      inject<BarcodeTypeService>('barcodeTypeService')
+    const barcodeTypes: BarcodeTypeInterface[] | undefined = barcodeTypeService?.getBarcodeTypes()
+
+    const selectedBarcodeType = ref<BarcodeTypeInterface | undefined>(undefined)
+
+    return {
+      barcodeTypes,
+      selectedBarcodeType,
+    }
   },
 })
 </script>
