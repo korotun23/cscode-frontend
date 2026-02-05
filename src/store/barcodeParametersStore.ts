@@ -7,7 +7,7 @@ import { ref } from 'vue'
 // Types
 import { BarcodeParameters } from '@/types/barcodeParameters'
 
-export const useBarcodeSettingsStore = defineStore('barcodeSettings', () => {
+export const useBarcodeParametersStore = defineStore('barcodeParameters', () => {
 
   const barcodeParameters = ref<BarcodeParameters>(new BarcodeParameters())
 

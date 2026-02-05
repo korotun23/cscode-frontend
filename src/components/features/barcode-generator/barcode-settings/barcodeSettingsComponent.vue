@@ -52,13 +52,11 @@
       <div class="field">
         <label for="image-file-format">Image file format</label>
         <div class="select is-fullwidth mt-2">
-          <select id="image-file-format">
+          <select id="image-file-format" v-model="barcodeParameters.imageFormat">
             <option disabled value>Select the image file format</option>
-            <option>png</option>
-            <option>jpg</option>
-            <option>jpeg</option>
-            <option>webp</option>
-            <option>svg</option>
+            <option v-for="imageFormat in ImageFormat" :key="imageFormat" :value="imageFormat">
+              {{ imageFormat }}
+            </option>
           </select>
         </div>
       </div>
@@ -74,21 +72,23 @@
 
 <script lang="ts">
 // Vue
-import { defineComponent, inject, ref } from 'vue'
+import { defineComponent, inject, ref, watch } from 'vue'
 // Service
 import { BarcodeTypeService } from '@/services/barcodeTypeService'
 // Types
 import type { BarcodeTypeInterface } from '@/types/barcodeTypeInterface'
 import { BarcodeParameters } from '@/types/barcodeParameters'
+import { ImageFormat } from '@/types/imageFileFormat'
+
 // Store
-import { useBarcodeSettingsStore } from '@/store/barcodeSettingsStore'
+import { useBarcodeParametersStore } from '@/store/barcodeParametersStore'
 
 export default defineComponent({
   name: 'BarcodeSettingsComponent',
   setup() {
     // Store
-    const barcodeSettingsStore = useBarcodeSettingsStore()
-    const barcodeParameters: BarcodeParameters | undefined = barcodeSettingsStore.barcodeParameters
+    const barcodeParametersStore = useBarcodeParametersStore()
+    const barcodeParameters: BarcodeParameters = barcodeParametersStore.barcodeParameters
 
     // Services injected
     const barcodeTypeService: BarcodeTypeService | undefined =
@@ -97,10 +97,30 @@ export default defineComponent({
 
     const selectedBarcodeType = ref<BarcodeTypeInterface | undefined>(undefined)
 
+    function updateDefaultValues(barcodeType: BarcodeTypeInterface | undefined) {
+      if (typeof barcodeType === 'undefined') {
+        barcodeParameters.size[0] = 0
+        barcodeParameters.size[1] = 0
+        barcodeParameters.defaultValue = ''
+        return
+      }
+      barcodeParameters.identifier = barcodeType.identifier
+      barcodeParameters.name = barcodeType.name
+      barcodeParameters.size[0] = barcodeType.size[0]
+      barcodeParameters.size[1] = barcodeType.size[1]
+      barcodeParameters.defaultValue = barcodeType.defaultValue
+    }
+
+    watch(selectedBarcodeType, (newBarcodeType: BarcodeTypeInterface | undefined) => {
+      updateDefaultValues(newBarcodeType)
+    })
+
     return {
       barcodeTypes,
       selectedBarcodeType,
       barcodeParameters,
+      ImageFormat,
+      updateDefaultValues,
     }
   },
 })

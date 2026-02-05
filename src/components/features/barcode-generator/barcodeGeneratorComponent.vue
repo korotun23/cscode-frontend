@@ -49,7 +49,7 @@
 // Vue
 import { defineComponent } from 'vue'
 // Store
-import { useBarcodeSettingsStore } from '@/store/barcodeSettingsStore'
+import { useBarcodeParametersStore } from '@/store/barcodeParametersStore'
 // Types
 import { BarcodeParameters } from '@/types/barcodeParameters'
 // Child components
@@ -72,7 +72,7 @@ export default defineComponent({
   },
   setup() {
     // Store
-    const barcodeSettingsStore = useBarcodeSettingsStore()
+    const barcodeSettingsStore = useBarcodeParametersStore()
     const barcodeParameters: BarcodeParameters | undefined = barcodeSettingsStore.barcodeParameters
     return {
       barcodeParameters,
