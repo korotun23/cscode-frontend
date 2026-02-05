@@ -48,6 +48,10 @@
 <script lang="ts">
 // Vue
 import { defineComponent } from 'vue'
+// Store
+import { useBarcodeSettingsStore } from '@/store/barcodeSettingsStore'
+// Types
+import { BarcodeParameters } from '@/types/barcodeParameters'
 // Child components
 import BarcodeSettingsComponent from './barcode-settings/barcodeSettingsComponent.vue'
 import BarcodePreviewComponent from './barcode-preview/barcodeSettngsPreviewComponent.vue'
@@ -67,7 +71,12 @@ export default defineComponent({
     BarcodeGeneratorActionsComponent,
   },
   setup() {
-    return {}
+    // Store
+    const barcodeSettingsStore = useBarcodeSettingsStore()
+    const barcodeParameters: BarcodeParameters | undefined = barcodeSettingsStore.barcodeParameters
+    return {
+      barcodeParameters,
+    }
   },
 })
 </script>
