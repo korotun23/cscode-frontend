@@ -9,11 +9,8 @@
     </div>
   </div>
   <!-- END HERO -->
-  <!-- SPACER -->
-  <div class="block"></div>
-  <!-- END SPACER -->
   <!-- CONTENT : SETTINGS / PREVIEW -->
-  <div class="container">
+  <div class="container pt-5">
     <div class="columns is-multiline">
       <div class="column is-7">
         <BarcodeSettingsComponent />
@@ -37,8 +34,15 @@
       </div>
     </div>
     <!-- END DATABASE SETTINGS -->
+    <div class="columns">
+      <div class="column is-12">
+        <BarcodeGeneratorActionsComponent />
+      </div>
+    </div>
+    <!-- SPACER -->
+    <div class="block"></div>
+    <!-- END SPACER -->
   </div>
-  <div class="block"></div>
 </template>
 
 <script lang="ts">
@@ -49,6 +53,7 @@ import BarcodeSettingsComponent from './barcode-settings/barcodeSettingsComponen
 import BarcodePreviewComponent from './barcode-preview/barcodeSettngsPreviewComponent.vue'
 import DatabaseSelectorComponent from './database-selector/databaseSelectorComponent.vue'
 import DatabaseSettingsComponent from './database-settings/databaseSettingsComponent.vue'
+import BarcodeGeneratorActionsComponent from './barcode-generator-actions/barcodeGeneratorActionsComponent.vue'
 // Styles
 import './sass/style.scss'
 
@@ -59,6 +64,7 @@ export default defineComponent({
     BarcodePreviewComponent,
     DatabaseSelectorComponent,
     DatabaseSettingsComponent,
+    BarcodeGeneratorActionsComponent,
   },
   setup() {
     return {}
