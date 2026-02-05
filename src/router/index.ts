@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-// Import views
-import barcodeGeneratorView from '../views/barcodeGeneratorView.vue'
+// Import components
+import barcodeGeneratorComponent from '../components/features/barcode-generator/barcodeGeneratorComponent.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -9,12 +9,12 @@ const router = createRouter({
     {
       path: '/barcode-generator',
       name: 'BarcodeGenerator',
-      component: barcodeGeneratorView,
+      component: barcodeGeneratorComponent,
     },
     {
       path: '/',
       name: 'BarcodeGenerator',
-      component: barcodeGeneratorView,
+      component: barcodeGeneratorComponent,
     },
   ],
 })

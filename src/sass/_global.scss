@@ -6,6 +6,7 @@ $flag-red: #c81d25ff;
 $platinum: #f3f3f4ff;
 $lime-cream: #fffd98;
 $cool-grey: #8f99a3;
+$dark-grey: #8d8c8c;
 $deep-blue: #5b86e5;
 $emerald-blue: #36d1dc;
 
@@ -72,7 +73,6 @@ body {
   cursor: default;
 }
 
-// TODO: Refactor this when front end development is finished
 nav.navbar {
   border-top: 4px solid $deep-blue;
 }
@@ -152,7 +152,6 @@ nav.navbar {
 }
 
 /*Footer*/
-
 .footer {
   font-weight: 700;
   color: $cool-grey;
@@ -171,6 +170,12 @@ nav.navbar {
   }
 }
 
+/* Forms */
+label{
+  margin-bottom:0.5em;
+}
+
+
 /* Custom checkbox */
 .form-control-checkbox {
   font-size: 1.1em;
@@ -181,10 +186,10 @@ nav.navbar {
   margin-top: 1em;
 }
 
-input[type="checkbox"]{
+input[type='checkbox'] {
   -webkit-appearance: none;
   appearance: none;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   margin: 0;
   font-size: inherit;
   color: currentColor;
@@ -192,20 +197,20 @@ input[type="checkbox"]{
   height: 1.15em;
   border: 0.075em solid currentColor;
   border-radius: 0.15em;
-  transform: translateY(-0,075em);
+  transform: translateY(-0, 075em);
   display: grid;
   place-content: center;
 
-  &::before{
-    content: "";
+  &::before {
+    content: '';
     width: 0.65em;
     height: 0.65em;
-    transform:scale(0);
+    transform: scale(0);
     transition: 120ms transform ease-in-out;
     box-shadow: inset 1em 1em $deep-blue;
   }
 
-  &:checked::before{
+  &:checked::before {
     transform: scale(1);
   }
 }

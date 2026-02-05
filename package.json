@@ -13,8 +13,7 @@
     "test:unit": "vitest",
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
-    "lint": "eslint . --fix --cache",
-    "format": "prettier --write --experimental-cli src/"
+    "lint": "eslint . --fix --cache"
   },
   "dependencies": {
     "@bwip-js/node": "^4.8.0",
@@ -46,7 +45,6 @@
     "jiti": "^2.6.1",
     "jsdom": "^27.4.0",
     "npm-run-all2": "^8.0.4",
-    "prettier": "3.7.4",
     "typescript": "~5.9.3",
     "vite": "^7.3.0",
     "vite-plugin-node-polyfills": "^0.24.0",
