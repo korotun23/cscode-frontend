@@ -24,16 +24,21 @@
     </div>
     <!-- END CONTENT : SETTINGS / PREVIEW -->
     <!-- DATABASE SELECTOR -->
-    <div class="container">
-      <DatabaseSelectorComponent />
+    <div class="columns">
+      <div class="column is-12">
+        <DatabaseSelectorComponent />
+      </div>
     </div>
     <!-- END DATABASE SELECTOR -->
-    <div class="column pt-3">
+    <!-- DATABASE SETTINGS -->
+    <div class="columns">
       <div class="column is-12">
         <DatabaseSettingsComponent />
       </div>
     </div>
+    <!-- END DATABASE SETTINGS -->
   </div>
+  <div class="block"></div>
 </template>
 
 <script lang="ts">
@@ -43,6 +48,7 @@ import { defineComponent } from 'vue'
 import BarcodeSettingsComponent from './barcode-settings/barcodeSettingsComponent.vue'
 import BarcodePreviewComponent from './barcode-preview/barcodeSettngsPreviewComponent.vue'
 import DatabaseSelectorComponent from './database-selector/databaseSelectorComponent.vue'
+import DatabaseSettingsComponent from './database-settings/databaseSettingsComponent.vue'
 // Styles
 import './sass/style.scss'
 
@@ -52,6 +58,7 @@ export default defineComponent({
     BarcodeSettingsComponent,
     BarcodePreviewComponent,
     DatabaseSelectorComponent,
+    DatabaseSettingsComponent,
   },
   setup() {
     return {}
