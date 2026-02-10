@@ -4,17 +4,19 @@
       <h2 class="card-header-title">Preview</h2>
     </div>
     <div class="card-content">
-      <svg v-html="barcodePreview"></svg>
       <div class="field control">
         <label for="barcode-preview-value">Test value</label>
-        <input
-          id="barcode-preview-value"
-          class="input is-fullwidth"
-          type="text"
-          placeholder="Enter a test value"
-          v-model="barcodeParameters.defaultValue"
-        />
+        <div class="control mt-2">
+          <input
+            id="barcode-preview-value"
+            class="input is-fullwidth"
+            type="text"
+            placeholder="Enter a test value"
+            v-model="barcodeParameters.defaultValue"
+          />
+        </div>
       </div>
+      <div class="barcode-preview" v-html="barcodePreview"></div>
     </div>
   </div>
 </template>
