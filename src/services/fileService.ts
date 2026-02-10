@@ -1,5 +1,3 @@
-import { randomUUID } from 'crypto'
-
 export class FileService {
   private static instance: FileService
 
@@ -12,7 +10,4 @@ export class FileService {
     return FileService.instance
   }
 
-  public generateFileName(extension: string): string {
-    return randomUUID() + '.' + extension
-  }
 }
