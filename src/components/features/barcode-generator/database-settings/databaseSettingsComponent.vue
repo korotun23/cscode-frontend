@@ -3,7 +3,7 @@
     <div class="card-header">
       <h2 class="card-header-title">Database Settings</h2>
     </div>
-    <div class="card-content">
+    <div class="card-content pb-5">
       <div class="columns">
         <div class="column is-6">
           <div class="select is-fullwidth">

@@ -16,7 +16,20 @@
           />
         </div>
       </div>
-      <div class="barcode-preview" v-html="barcodePreview"></div>
+      <div class="barcode-preview mb-4" v-html="barcodePreview"></div>
+    </div>
+    <div
+      class="card-footer"
+      :disabled="!isPreviewGenerated"
+      :class="{
+        'has-background-primary': isPreviewGenerated,
+        'is-disabled is-outlined': !isPreviewGenerated,
+      }"
+    >
+      <button class="card-footer-item has-text-white">
+        <span class="material-symbols-outlined pr-2"> download </span>
+        Download preview
+      </button>
     </div>
   </div>
 </template>
@@ -47,20 +60,29 @@ export default defineComponent({
     // Refs
     const barcodePreview = ref('')
     const barcodeValue = ref('')
+    const isPreviewGenerated = ref(false)
 
     function updateBarcodePreview() {
       if (
         typeof barcodeGeneratorService === 'undefined' ||
         typeof barcodeParameters === 'undefined'
       ) {
+        isPreviewGenerated.value = false
         return
       }
 
       // Generate barcode preview
       try {
         barcodePreview.value = barcodeGeneratorService.generateBarcode(barcodeParameters)
+        if (barcodePreview.value === '') {
+          isPreviewGenerated.value = false
+          return
+        } else {
+          isPreviewGenerated.value = true
+        }
       } catch (error) {
         console.error(error)
+        isPreviewGenerated.value = false
       }
     }
 
@@ -71,6 +93,7 @@ export default defineComponent({
       barcodeGeneratorService,
       barcodePreview,
       barcodeValue,
+      isPreviewGenerated,
       updateBarcodePreview,
     }
   },

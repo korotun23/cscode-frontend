@@ -3,7 +3,7 @@ import { BarcodeParameters } from '../types/barcodeParameters'
 import bwipjs from '@bwip-js/node'
 
 export class BarcodeGeneratorService {
-  public generateBarcode(barcodeParameters: BarcodeParameters): string {
+  public generateBarcode(barcodeParameters: BarcodeParameters): string{
     try {
       const svgBarcode: string = bwipjs.toSVG({
         bcid: barcodeParameters.identifier,

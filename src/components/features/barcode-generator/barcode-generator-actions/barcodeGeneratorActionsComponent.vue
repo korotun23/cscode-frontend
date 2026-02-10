@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <div class="card-content">
+    <div class="card-content pb-5">
       <div class="columns">
         <div class="column is-3">
           <button class="button is-primary is-fullwidth is-outlined">

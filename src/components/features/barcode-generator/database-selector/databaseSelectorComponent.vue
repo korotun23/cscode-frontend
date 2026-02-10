@@ -3,7 +3,7 @@
     <div class="card-header">
       <h2 class="card-header-title">Database selector</h2>
     </div>
-    <div class="card-content">
+    <div class="card-content pb-4">
       <div class="columns">
         <div class="column is-10">
           <div class="file has-name is-fullwidth">
