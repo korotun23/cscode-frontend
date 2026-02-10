@@ -9,6 +9,7 @@ import type { BarcodeTypeInterface } from './barcodeTypeInterface'
  * @property size - The default size of the barcode type (e.g [200, 200])
  * @property printTextValue - The default value of the print text value option (e.g true)
  * @property imageFormat - The default value of the image format option (e.g 'png')
+ * @property options - The options of the barcode type - Options : displayText - text value is displayable under the barcode)
  */
 export class BarcodeParameters implements BarcodeTypeInterface {
   identifier: string
@@ -17,6 +18,9 @@ export class BarcodeParameters implements BarcodeTypeInterface {
   size: [number, number]
   printTextValue: boolean
   imageFormat: string
+  options: {
+    displayText: boolean
+  }
 
   constructor() {
     this.identifier = ''
@@ -25,5 +29,8 @@ export class BarcodeParameters implements BarcodeTypeInterface {
     this.size = [0, 0]
     this.printTextValue = false
     this.imageFormat = ''
+    this.options = {
+      displayText: false,
+    }
   }
 }

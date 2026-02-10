@@ -60,7 +60,7 @@
           </select>
         </div>
       </div>
-      <div class="field">
+      <div class="field" v-if="barcodeParameters.options.displayText">
         <label class="form-control-checkbox">
           <input type="checkbox" v-model="barcodeParameters.printTextValue" />
           Print text value under the barcode
@@ -109,6 +109,7 @@ export default defineComponent({
       barcodeParameters.size[0] = barcodeType.size[0]
       barcodeParameters.size[1] = barcodeType.size[1]
       barcodeParameters.defaultValue = barcodeType.defaultValue
+      barcodeParameters.options.displayText = barcodeType.options.displayText
     }
 
     watch(selectedBarcodeType, (newBarcodeType: BarcodeTypeInterface | undefined) => {
